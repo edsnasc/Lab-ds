@@ -6,9 +6,10 @@ export interface HeaddingProps {
     size?: 'sm' | 'md' | 'lg';
     children: ReactNode;
     asChild?: boolean;
+    className?: string;
 }
 
-export function Headding({ size = 'md', children, asChild }: HeaddingProps) {
+export function Headding({ size = 'md', children, asChild, className }: HeaddingProps) {
     const Comp = asChild ? Slot : 'h2';
 
     return (
@@ -18,7 +19,8 @@ export function Headding({ size = 'md', children, asChild }: HeaddingProps) {
                 'text-lg': size == 'sm',
                 'text-xl': size == 'md',
                 'text-2xl': size == 'lg',
-            }
+            },
+            className
         )}
         >
             {children}
